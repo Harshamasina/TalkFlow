@@ -82,7 +82,8 @@ export async function getCurrentuser(): Promise<User | null>{
     if(!sessionCookie) return null;
 
     try{
-        const decodedClaims = await auth.verifySessionCookie(sessionCookie, true);
+        // Avoid revoked check so deleted/missing Auth users don't throw here
+        const decodedClaims = await auth.verifySessionCookie(sessionCookie, false);
         const userRecord = await db.collection('users').doc(decodedClaims.uid).get();
         if(!userRecord.exists) return null;
 
@@ -94,6 +95,11 @@ export async function getCurrentuser(): Promise<User | null>{
         console.log(e);
         return null;
     }
+}
+
+export async function signOut(){
+    const cookieStore = await cookies();
+    cookieStore.delete('session');
 }
 
 export async function isAuthenticate(){

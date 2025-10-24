@@ -4,11 +4,11 @@ import { ReactNode } from 'react'
 
 const Authlayout = async ({ children }: { children: ReactNode }) => {
     const isUserAuthenticated = await isAuthenticate();
-    if(!isUserAuthenticated) redirect('/sign-in');
-    
-    return (
-        <div className='auth-layout'>{children}</div>
-    )
+    // Auth pages (sign-in/up) should be accessible when NOT authenticated.
+    // If already authenticated, send user to the app.
+    if (isUserAuthenticated) redirect('/');
+
+    return <div className='auth-layout'>{children}</div>
 }
 
 export default Authlayout
