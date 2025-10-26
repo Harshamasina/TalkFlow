@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import robot from "../../public/robot.png";
-import { dummyInterviews } from "@/constants";
 import InterviewCard from "@/components/InterviewCard";
 import { getCurrentuser } from "@/lib/actions/auth.action";
 import { getInterviewsByUserId, getLatestInterviews } from "@/lib/actions/general.action";
