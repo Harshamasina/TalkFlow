@@ -10,17 +10,17 @@
   --color-destructive-100: #f75353;
   --color-destructive-200: #c44141;
 
-  --color-primary-100: #dddfff;
-  --color-primary-200: #cac5fe;
+  --color-primary-100: #BCD2E8;
+  --color-primary-200: #91BAD6;
 
-  --color-light-100: #d6e0ff;
-  --color-light-400: #6870a6;
-  --color-light-600: #4f557d;
-  --color-light-800: #24273a;
+  --color-light-100: #BCD2E8;
+  --color-light-400: #91BAD6;
+  --color-light-600: #73A5C6;
+  --color-light-800: #528AAE;
 
-  --color-dark-100: #020408;
-  --color-dark-200: #27282f;
-  --color-dark-300: #242633;
+  --color-dark-100: #528AAE;
+  --color-dark-200: #2E5984;
+  --color-dark-300: #1E3F66;
 
   --font-mona-sans: "Mona Sans", sans-serif;
 
@@ -291,6 +291,10 @@
     .badge-text {
       @apply text-sm font-semibold capitalize;
     }
+  }
+
+  .btn-destructive {
+    @apply bg-[var(--color-destructive-100)] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[var(--color-destructive-200)] transition-colors;
   }
 }
 
