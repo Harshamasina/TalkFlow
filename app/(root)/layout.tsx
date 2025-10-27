@@ -19,6 +19,14 @@ const Rootlayout = async ({children}: { children: ReactNode }) => {
                 {isUserAuthenticated && <SignOut />}
             </nav>
             {children}
+            <footer className='site-footer'>
+                <p>© {new Date().getFullYear()} TalkFlow. Practice smarter, interview better.</p>
+                <div className='footer-links'>
+                    <Link href="/interview">Start Interview</Link>
+                    <Link href="/#features">Features</Link>
+                    <Link href="/#support">Support</Link>
+                </div>
+            </footer>
         </div>
     )
 };

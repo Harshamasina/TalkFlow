@@ -175,7 +175,7 @@
     @apply flex min-h-14 w-full items-center justify-center gap-1.5 rounded-md;
   }
   .btn-primary {
-    @apply w-fit !bg-primary-200 !text-dark-100 hover:!bg-primary-200/80 !rounded-full !font-bold px-5 cursor-pointer min-h-10;
+    @apply w-fit !bg-primary-200 !text-white hover:!bg-primary-200/80 !rounded-full !font-bold px-5 cursor-pointer min-h-10;
   }
   .btn-secondary {
     @apply w-fit !bg-dark-200 !text-primary-200 hover:!bg-dark-200/80 !rounded-full !font-bold px-5 cursor-pointer min-h-10;
@@ -289,7 +289,19 @@
     @apply dark-gradient rounded-2xl min-h-full flex flex-col p-6 relative overflow-hidden gap-10 justify-between;
 
     .badge-text {
-      @apply text-sm font-semibold capitalize;
+      @apply text-sm font-semibold capitalize text-white;
+    }
+  }
+
+  .site-footer {
+    @apply w-full flex flex-col gap-3 border-t border-light-400/30 pt-6 text-light-100 text-sm sm:flex-row sm:items-center sm:justify-between;
+
+    .footer-links {
+      @apply flex flex-wrap gap-4 text-primary-100 text-sm;
+
+      a {
+        @apply hover:text-white transition-colors;
+      }
     }
   }
 
