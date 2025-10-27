@@ -9,7 +9,7 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "TalkWise",
+  title: "TalkFlow",
   description: "An AI Powered Real-Time Voice Agent Interview Platform",
   icons: {
     icon: "/logo_3.png",
