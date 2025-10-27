@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import avatar from "../public/ai-avatar.png";
+import logo from '../public/logo_1.png';
 import user from "../public/talking.png";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -148,7 +148,7 @@ const Agent = ({ userName, userId, type, interviewId, questions, feedbackId }: A
             <div className="call-view">
                 <div className="card-interviewer">
                     <div className="avatar">
-                        <Image src={avatar} alt="vapi" width={65} height={54} className="object-cover" />
+                        <Image src={logo} alt="vapi" width={65} height={54} className="object-cover" />
                         {isSpeaking && <span className="animate-speak"></span>}
                     </div>
                     <h3>AI Interviewer</h3>

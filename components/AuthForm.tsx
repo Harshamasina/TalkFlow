@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/client";
 import { signIn, signUp } from "@/lib/actions/auth.action";
+import logo from '../public/logo_1.png';
 
 const authFormSchema = (type: FormType) => {
     return z.object({
@@ -77,7 +78,7 @@ const AuthForm = ({ type }: {type: FormType}) => {
         <div className="card-border lg:min-w-[566px]">
             <div className="flex flex-col gap-6 card py-16 px-10">
                 <div className="flex flex-row gap-2 justify-center">
-                    <Image src="/logo.svg" alt="logo" height={32} width={38} />
+                    <Image src={logo} alt="logo" height={32} width={38} />
                     <h2 className="text-primary-200">TalkFlow AI</h2>
                 </div>
                 <h3 className="justify-center ml-10">Job Interview Preparation Platform</h3>

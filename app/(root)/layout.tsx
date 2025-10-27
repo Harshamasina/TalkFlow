@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import SignOut from '@/components/SignOut'
-import logo from '../../public/logo_3.png';
+import logo from '../../public/logo_1.png';
 
 const Rootlayout = async ({children}: { children: ReactNode }) => {
     const isUserAuthenticated = await isAuthenticate();
@@ -18,7 +18,9 @@ const Rootlayout = async ({children}: { children: ReactNode }) => {
                 </Link>
                 {isUserAuthenticated && <SignOut />}
             </nav>
+            
             {children}
+
             <footer className='site-footer'>
                 <p>© {new Date().getFullYear()} TalkFlow. Practice smarter, interview better.</p>
                 <div className='footer-links'>
