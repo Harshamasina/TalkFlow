@@ -21,7 +21,7 @@ const page = async () => {
             <section className='card-cta'>
                 <div className='flex flex-col gap-6 max-w-lg'>
                     <h2>Get Interview Ready with AI powered Practice and Feedback Chat Agent</h2>
-                    <p className='text-lg'>Practice on real Interview Questions</p>
+                    <p className='text-lg'>Practice on Real Interview Questions</p>
                     <Button asChild className="btn-primary text-white max-sw:w-full">
                         <Link href="/interview">Start an Interview</Link>
                     </Button>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import logo from '../public/logo_1.png';
-import user from "../public/talking.png";
+import user from "../public/person.png";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
