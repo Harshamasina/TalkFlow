@@ -11,10 +11,10 @@ const page = async ({ params }: RouteParams) => {
     const { id } = await params;
     const user = await getCurrentuser();
     const interview = await getInterviewById(id);
-    if(!interview) redirect('/');
+    if(!interview) redirect('/interviews');
 
     const feedbackUserId = interview.userId ?? user?.id;
-    if (!feedbackUserId) redirect('/');
+    if (!feedbackUserId) redirect('/interviews');
 
     const feedback = await getFeedbackByInterviewId({
         interviewId: id,
@@ -91,9 +91,9 @@ const page = async ({ params }: RouteParams) => {
 
             <div className="buttons">
                 <Button className="btn-secondary flex-1">
-                    <Link href="/" className="flex w-full justify-center">
+                    <Link href="/interviews" className="flex w-full justify-center">
                         <p className="text-sm font-semibold text-primary-200 text-center">
-                        Back to dashboard
+                        Back to interviews
                         </p>
                     </Link>
                 </Button>

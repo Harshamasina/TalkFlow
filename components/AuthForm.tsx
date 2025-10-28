@@ -64,7 +64,7 @@ const AuthForm = ({ type }: {type: FormType}) => {
                     email, idToken
                 });
                 toast.success('Sign In Successfully.')
-                router.push('/');
+                router.push('/interviews');
             }
         } catch (error) {
             console.error(error);

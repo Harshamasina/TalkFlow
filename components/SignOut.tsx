@@ -22,7 +22,7 @@ const SignOut = () => {
     const handleSignOut = () => {
         startTransition(async () => {
             await signOut();
-            router.replace("/sign-in");
+            router.replace("/");
         });
     };
 
