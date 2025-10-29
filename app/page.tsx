@@ -14,6 +14,8 @@ import Image from "next/image";
 import heroIllustration from "@/public/robot.png";
 import interview from "../public/interview_2.jpg";
 import logo from "../public/logo_1.png";
+import SignOutButton from "@/components/SignOutButton";
+import { isAuthenticate } from "@/lib/actions/auth.action";
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -87,7 +89,9 @@ const faqs = [
   },
 ];
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const isUserAuthenticated = await isAuthenticate();
+
   return (
     <main className="w-full">
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-24 px-6 py-10 md:px-12 lg:px-16">
@@ -114,23 +118,34 @@ export default function LandingPage() {
               ))}
             </div>
             <div className="flex items-center gap-3">
-              <Button
-                asChild
-                variant="outline"
-                className="hidden border-white/30 text-white hover:bg-white/10 md:inline-flex"
-              >
-                <Link href="/sign-in">Sign In</Link>
-              </Button>
-              <Button
-                asChild
-                className="md:hidden"
-                variant="ghost"
-              >
-                <Link href="/sign-in">
-                  Sign In
-                  <ArrowRight className="ml-1 size-4" />
-                </Link>
-              </Button>
+              {isUserAuthenticated ? (
+                <>
+                  <SignOutButton
+                    variant="outline"
+                    className="hidden border-white/30 text-white hover:bg-white/10 md:inline-flex"
+                  />
+                  <SignOutButton
+                    variant="ghost"
+                    className="md:hidden text-white hover:bg-white/10"
+                  />
+                </>
+              ) : (
+                <>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="hidden border-white/30 text-white hover:bg-white/10 md:inline-flex"
+                  >
+                    <Link href="/sign-in">Sign In</Link>
+                  </Button>
+                  <Button asChild className="md:hidden" variant="ghost">
+                    <Link href="/sign-in">
+                      Sign In
+                      <ArrowRight className="ml-1 size-4" />
+                    </Link>
+                  </Button>
+                </>
+              )}
             </div>
           </nav>
 
@@ -151,22 +166,36 @@ export default function LandingPage() {
                 organized in one place.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Button
-                  asChild
-                  className="bg-primary-200 text-black hover:bg-primary-100"
-                >
-                  <Link href="/sign-up">
-                    Get Started
-                    <ArrowRight className="ml-2 size-4" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10"
-                >
-                  <Link href="/interviews">Explore Interviews</Link>
-                </Button>
+                {isUserAuthenticated ? (
+                  <Button
+                    asChild
+                    className="bg-primary-200 text-black hover:bg-primary-100"
+                  >
+                    <Link href="/interviews">
+                      Explore Interviews
+                      <ArrowRight className="ml-2 size-4" />
+                    </Link>
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      asChild
+                      className="bg-primary-200 text-black hover:bg-primary-100"
+                    >
+                      <Link href="/sign-up">
+                        Get Started
+                        <ArrowRight className="ml-2 size-4" />
+                      </Link>
+                    </Button>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="border-white/30 text-white hover:bg-white/10"
+                    >
+                      <Link href="/interviews">Explore Interviews</Link>
+                    </Button>
+                  </>
+                )}
               </div>
               <div className="grid grid-cols-3 gap-4 pt-6 sm:pt-8">
                 {metrics.map((metric) => (
