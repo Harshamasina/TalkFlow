@@ -26,6 +26,12 @@ export default function RootLayout({
       <body
         className={`${monaSans.className} antialiased pattern`}
       >
+        <script
+          defer
+          data-website-id='883efbee-b6fb-4f6d-85c9-212225201e84'
+          data-domain='https://talk-flow-brown.vercel.app'
+          src='https://sitetrack-nextjs.vercel.app/analytics.js'>
+        </script>
         {children}
         <Toaster />
       </body>
